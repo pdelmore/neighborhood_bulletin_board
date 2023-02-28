@@ -24,10 +24,71 @@
  
  
  h1 {
-   font-weight: bold;
+   font-weight: 600;
+   padding: 15px;
+ }
+
+ h2 {
+   font-weight: 600;
  }
 
  .title {
   text-align: center;
  }
+
+ .homepage-link {
+  margin: 15px 20px;
+ }
+
+
+ .wrapper {
+  display: flex;
+ }
+
+ .post-details-box {
+  width: 60%;
+ }
+
+ .edit-post-box {
+  width: 1;
+ }
+
+ .comments-box {
+  text-align: center;
+ }
+
+ .comment-list {
+  margin-bottom: 50px;
+ }
+
+
+ .wrapper-index {
+  display: flex;
+  flex-direction: column;
+ }
+
+ .new-post {
+  text-align: center;
+margin-bottom: 40px;
+ }
+
+ .list-of-posts {
+  margin: 20px 40px 10px;
+ }
+
+ .button {
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  transition-duration: 0.4s;
+ }
+
+ .button:hover {
+  background-color: #008CBA;
+  color: white;
+}
  

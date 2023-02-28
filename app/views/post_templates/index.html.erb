@@ -1,1 +1,39 @@
-hi
+<div class="wrapper-index">
+
+  <div class="new-post">
+    <h2>
+      Add new post
+    </h2>
+
+    <form action="">
+      <label for="post_title">Title:</label><br>
+      <textarea id="post_title" type="text" name="new_post_title" placeholder="Enter your post title here..." rows="2" cols="60"></textarea>
+      <br>
+      <label for="new_post">Post body:</label><br>
+      <textarea rows="10" cols="60" id="new_post" type="text" name="new_post_body" placeholder="Enter your post here..."></textarea>
+      <br>
+      <button class="button">Submit</button>
+    </form>
+
+  </div>
+
+  <div class="list-of-posts">
+
+    <h2>List of all posts</h2>
+
+    <table border="1px">
+      <tr>
+        <th>Title</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>post title</td>
+        <td>created on</td>
+        <td><a href="">show details</a></td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

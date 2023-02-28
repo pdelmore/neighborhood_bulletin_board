@@ -27,11 +27,16 @@
         <th>Created</th>
         <th></th>
       </tr>
+
+<% @posts.each do |a_post| %>
+
       <tr>
-        <td>post title</td>
-        <td>created on</td>
+        <td><%= a_post.title %></td>
+        <td><%= a_post.created_at%></td>
         <td><a href="">show details</a></td>
       </tr>
+
+      <% end %>
     </table>
 
   </div>

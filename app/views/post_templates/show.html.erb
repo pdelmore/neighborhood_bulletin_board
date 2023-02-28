@@ -1,23 +1,35 @@
 <div class="wrapper">
 
-<div class="post-details-box">
-<h2>Post Details</h2>
+  <div class="post-details-box">
+    <h2>Post Details</h2>
 
-<br>
+    <br>
 
-<h3>Title:</h3>
-<br>
-<h3>Post:</h3>
-<br>
-<a href="">Delete this post</a>
-</div>
+    <h3>Title:</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <br>
+    <h3>Post:</h3>
+    <p>Aenean tristique rutrum erat, vitae mollis erat. Fusce eu odio ac nibh accumsan egestas. Phasellus consectetur, justo vitae placerat varius, lectus velit finibus tellus, ut fermentum libero ante eget metus. Morbi non aliquam erat. Suspendisse rhoncus tortor ac pharetra tincidunt. Nullam sed lobortis magna, ac tempus risus. Quisque sit amet nibh sit amet ante congue vulputate. Nam aliquam ultrices tortor, sed vulputate leo.</p>
+    <br>
+    <div class="link">
+      <a href="">Delete this post</a>
+    </div>
+  </div>
 
-<div class="edit-post-box">
-<h2>Edit this post</h2>
+  <div class="edit-post-box">
+    <h2>Edit this post</h2>
 
-<p>form goes here</p>
+    <form action="">
+      <label for="post_title_edit">Title:</label><br>
+      <textarea id="post_title_edit" type="text" name="edit_post_title" placeholder="Edit your post title here..." rows="2" cols="60"></textarea>
+      <br>
+      <label for="new_post">Post body:</label><br>
+      <textarea rows="10" cols="60" id="new_post" type="text" name="edit_post_body" placeholder="Edit your post here..."></textarea>
+      <br>
+      <button class="button">Submit</button>
+    </form>
 
-</div>
+  </div>
 
 </div>
 
@@ -25,15 +37,34 @@
 
 <div class="comments-box">
 
-<div class="comment-list">
-<h3>Comments</h3>
-<p>comments go here</p>
-</div>
+  <div class="comment-list">
+    <h3>Comments</h3>
 
-<div class="new-comment">
-<h3>Add a new comment</h3>
-<p>form goes here</p>
-</div>
+    <table border="1px">
+      <tr>
+        <th>Comment</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>comment title</td>
+        <td>created on</td>
+        <td><a href="">delete</a></td>
+      </tr>
+    </table>
 
+  </div>
+
+  <div class="new-comment">
+    <h3>Add a new comment</h3>
+
+    <form action="">
+      <label for="comment"></label>
+      <textarea rows="10" cols="60" id="comment" type="text" name="new_comment" placeholder="Type your comment here..."></textarea>
+      <br>
+      <button class="button">Submit</button>
+    </form>
+
+  </div>
 
 </div>

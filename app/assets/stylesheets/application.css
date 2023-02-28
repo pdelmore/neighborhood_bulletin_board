@@ -43,22 +43,32 @@
 
  .wrapper {
   display: flex;
+  gap: 50px;
  }
 
  .post-details-box {
   width: 60%;
  }
 
+
  .edit-post-box {
+  padding-top: 40px;
+  text-align: center;
   width: 1;
  }
 
  .comments-box {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+
  }
 
  .comment-list {
+  text-align: center;
   margin-bottom: 50px;
+  margin: auto;
+  padding-bottom: 40px;
  }
 
 
@@ -88,6 +98,20 @@ margin-bottom: 40px;
  }
 
  .button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  padding: 5px 7px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition-duration: 0.4s;
+  color: #008CBA;
+}
+
+a:hover {
   background-color: #008CBA;
   color: white;
 }

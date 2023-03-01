@@ -32,7 +32,7 @@
 
       <tr>
         <td><%= a_post.title %></td>
-        <td><%= a_post.created_at%></td>
+        <td><%= time_ago_in_words(a_post.created_at)%> ago</td>
         <td><a href="">show details</a></td>
       </tr>
 

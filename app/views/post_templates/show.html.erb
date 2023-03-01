@@ -19,12 +19,12 @@
   <div class="edit-post-box">
     <h2>Edit this post</h2>
 
-    <form action="">
-      <label for="post_title_edit">Title:</label><br>
-      <textarea id="post_title_edit" type="text" name="edit_post_title" placeholder="Edit your post title here..." rows="2" cols="60"></textarea>
+    <form action="/post/edit/<%= @post_details.id %>">
+      <label for="title_edit">Title:</label><br>
+      <textarea id="title_edit" type="text" name="query_edited_title" placeholder="Edit your post title here..." rows="2" cols="60"></textarea>
       <br>
-      <label for="new_post">Post body:</label><br>
-      <textarea rows="10" cols="60" id="new_post" type="text" name="edit_post_body" placeholder="Edit your post here..."></textarea>
+      <label for="edit_post">Post body:</label><br>
+      <textarea rows="10" cols="60" id="edit_post" type="text" name="query_edited_body" placeholder="Edit your post here..."></textarea>
       <br>
       <button class="button">Submit</button>
     </form>

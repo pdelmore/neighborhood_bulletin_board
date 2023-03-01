@@ -37,7 +37,7 @@ new_post.body = post_body
 
 new_post.save
 
-redirect_to("/posts/details/#{new_post.id}")
+redirect_to("/post/details/#{new_post.id}")
 end
 
 def delete_post
@@ -48,10 +48,24 @@ def delete_post
 
   matching_posts.destroy
 
-
-
-
   redirect_to("/posts/")
+end
+
+def edit_post
+
+
+
+edited_title = params.fetch("query_edited_title")
+edited_body = params.fetch("query_edited_body")
+
+edited_post = Post.new
+
+edited_post.title = edited_title
+edited_post.body = edited_body
+
+edited_post.save
+
+redirect_to("/post/details/#{edited_post.id}")
 end
 
 end

@@ -11,21 +11,20 @@ end
 
 def show
 
-  all_comments = Comment.all
-
 url_post_id = params.fetch("post_id")
 
 @all_posts = Post.all
 
 @post_details = @all_posts.where({ :id => url_post_id}).first
 
+all_comments = Comment.all
+@matching_comments = all_comments.where({ :post_id => @post_details.id }).order(:created_at => :desc)
+
 
 render({ :template => "/post_templates/show.html.erb" })
 end
 
 def create_post
-
-#     Parameters: {"query_post_title"=>"help needed asap!", "query_post_body"=>"Post body"}
 
 post_title = params.fetch("query_post_title")
 post_body = params.fetch("query_post_body")
@@ -53,8 +52,6 @@ end
 
 def edit_post
 
-
-
 edited_title = params.fetch("query_edited_title")
 edited_body = params.fetch("query_edited_body")
 
@@ -66,6 +63,19 @@ edited_post.body = edited_body
 edited_post.save
 
 redirect_to("/post/details/#{edited_post.id}")
+end
+
+def create_comment
+
+query_new_comment = params.fetch("new_comment")
+
+new_comment = Comment.new
+new_comment.body = query_new_comment
+
+new_comment.save
+
+
+redirect_to("/post/details/#{new_comment.post_id.to_s}")
 end
 
 end

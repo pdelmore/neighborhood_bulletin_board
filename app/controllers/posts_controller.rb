@@ -77,7 +77,7 @@ new_comment.post_id = url_post_id
 new_comment.save
 
 
-redirect_to("/posts")
+redirect_to("/post/details/#{new_comment.post_id.to_s}")
 end
 
 end

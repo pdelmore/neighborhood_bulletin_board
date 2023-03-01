@@ -20,7 +20,6 @@ url_post_id = params.fetch("post_id")
 @post_details = @all_posts.where({ :id => url_post_id}).first
 
 
-
 render({ :template => "/post_templates/show.html.erb" })
 end
 
@@ -38,7 +37,21 @@ new_post.body = post_body
 
 new_post.save
 
-render({ :template => "/post_templates/submitted.html.erb" })
+redirect_to("/posts/details/#{new_post.id}")
+end
+
+def delete_post
+
+  post_id = params.fetch("post_id")
+
+  matching_posts = Post.where({ :id => post_id}).first
+
+  matching_posts.destroy
+
+
+
+
+  redirect_to("/posts/")
 end
 
 end

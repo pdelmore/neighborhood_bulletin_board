@@ -39,7 +39,7 @@ new_post.save
 if new_post.save
 redirect_to("/post/details/#{new_post.id}")
 else
-   render plain: 'Something bad happened'
+   render({ :template => "post_templates/invalid_post.html.erb" })
 end
 
 end

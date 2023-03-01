@@ -15,4 +15,6 @@ get("/delete_post/:post_id", { :controller => "posts", :action => "delete_post"}
 
 get("/post/edit/:post_id", { :controller => "posts", :action => "edit_post"})
 
+get("/delete_comment/:comment_id", { :controller => "posts", :action => "delete_comment" })
+
 end

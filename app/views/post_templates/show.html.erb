@@ -50,7 +50,7 @@
         <tr>
           <td><%= a_comment.body %></td>
           <td><%= time_ago_in_words(a_comment.created_at) %> ago</td>
-          <td><a href="">delete</a></td>
+          <td><a href="/delete_comment/<%= a_comment.id %>">delete</a></td>
         </tr>
       <% end %>
     </table>

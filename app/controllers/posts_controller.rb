@@ -80,4 +80,15 @@ new_comment.save
 redirect_to("/post/details/#{new_comment.post_id.to_s}")
 end
 
+def delete_comment
+
+  comment_id = params.fetch("comment_id")
+
+  matching_comment = Comment.where({ :id => comment_id}).first
+
+  matching_comment.destroy
+
+  redirect_to("/post/details/#{matching_comment.post_id.to_s}")
+end
+
 end

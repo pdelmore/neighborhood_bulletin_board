@@ -46,12 +46,12 @@
         <th>Created</th>
         <th></th>
       </tr>
-            <% @matching_comments.each do |a_comment| %>
-      <tr>
-        <td><%= a_comment.body %></td>
-        <td><%= time_ago_in_words(a_comment.created_at) %> ago</td>
-        <td><a href="">delete</a></td>
-      </tr>
+      <% @matching_comments.each do |a_comment| %>
+        <tr>
+          <td><%= a_comment.body %></td>
+          <td><%= time_ago_in_words(a_comment.created_at) %> ago</td>
+          <td><a href="">delete</a></td>
+        </tr>
       <% end %>
     </table>
 
@@ -60,9 +60,13 @@
   <div class="new-comment">
     <h3>Add a new comment</h3>
 
-    <form action="/add_comment">
-      <label for="comment"></label>
+    <form action="/insert_comment">
+
+      <label for="comment">Your comment:</label><br>
       <textarea rows="10" cols="60" id="comment" type="text" name="new_comment" placeholder="Type your comment here..."></textarea>
+      <br>
+      <label for="post_id">post ID</label>
+      <input id="post_id" type="text" value="<%= @post_details.id %>" name="post_id">
       <br>
       <button class="button">Submit</button>
     </form>

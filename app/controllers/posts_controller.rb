@@ -65,17 +65,19 @@ edited_post.save
 redirect_to("/post/details/#{edited_post.id}")
 end
 
-def create_comment
+def add_comment
 
 query_new_comment = params.fetch("new_comment")
+url_post_id = url_post_id = params.fetch("post_id")
 
 new_comment = Comment.new
 new_comment.body = query_new_comment
+new_comment.post_id = url_post_id
 
 new_comment.save
 
 
-redirect_to("/post/details/#{new_comment.post_id.to_s}")
+redirect_to("/posts")
 end
 
 end

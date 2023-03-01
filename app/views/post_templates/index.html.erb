@@ -33,7 +33,7 @@
       <tr>
         <td><%= a_post.title %></td>
         <td><%= time_ago_in_words(a_post.created_at)%> ago</td>
-        <td><a href="">show details</a></td>
+        <td><a href="posts/details/<%= a_post.id %>">show details</a></td>
       </tr>
 
       <% end %>

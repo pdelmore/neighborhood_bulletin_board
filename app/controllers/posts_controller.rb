@@ -4,7 +4,7 @@ def index
 
   matching_posts = Post.all
 
-  @posts = matching_posts.order(:created_at)
+  @posts = matching_posts.order(:created_at => :desc)
 
   render({ :template => "/post_templates/index.html.erb" })
 end
@@ -12,6 +12,14 @@ end
 def show
 
   all_comments = Comment.all
+
+url_post_id = params.fetch("post_id")
+
+@all_posts = Post.all
+
+@post_details = @all_posts.where({ :id => url_post_id}).first
+
+
 
 render({ :template => "/post_templates/show.html.erb" })
 end

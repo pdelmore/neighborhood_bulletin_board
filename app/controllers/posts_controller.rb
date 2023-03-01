@@ -36,7 +36,12 @@ new_post.body = post_body
 
 new_post.save
 
+if new_post.save
 redirect_to("/post/details/#{new_post.id}")
+else
+   render plain: 'Something bad happened'
+end
+
 end
 
 def delete_post

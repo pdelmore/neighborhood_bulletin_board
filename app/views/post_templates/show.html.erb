@@ -65,8 +65,7 @@
       <label for="comment">Your comment:</label><br>
       <textarea rows="10" cols="60" id="comment" type="text" name="new_comment" placeholder="Type your comment here..."></textarea>
       <br>
-      <label for="post_id">post ID</label>
-      <input id="post_id" type="text" value="<%= @post_details.id %>" name="post_id">
+      <input id="post_id" type="hidden" value="<%= @post_details.id %>" name="post_id">
       <br>
       <button class="button">Submit</button>
     </form>

@@ -1,99 +1,90 @@
 class PostsController < ApplicationController
+  def index
+    matching_posts = Post.all
 
-def index
+    @posts = matching_posts.order(:created_at => :desc)
 
-  matching_posts = Post.all
+    render({ :template => "/post_templates/index.html.erb" })
+  end
 
-  @posts = matching_posts.order(:created_at => :desc)
+  def show
+    url_post_id = params.fetch("post_id")
 
-  render({ :template => "/post_templates/index.html.erb" })
-end
+    @all_posts = Post.all
 
-def show
+    @post_details = @all_posts.where({ :id => url_post_id }).first
 
-url_post_id = params.fetch("post_id")
+    all_comments = Comment.all
+    @matching_comments = all_comments.where({ :post_id => @post_details.id }).order(:created_at => :desc)
 
-@all_posts = Post.all
+    render({ :template => "/post_templates/show.html.erb" })
+  end
 
-@post_details = @all_posts.where({ :id => url_post_id}).first
+  def create_post
+    post_title = params.fetch("query_post_title")
+    post_body = params.fetch("query_post_body")
 
-all_comments = Comment.all
-@matching_comments = all_comments.where({ :post_id => @post_details.id }).order(:created_at => :desc)
+    new_post = Post.new
 
+    new_post.title = post_title
+    new_post.body = post_body
 
-render({ :template => "/post_templates/show.html.erb" })
-end
+    new_post.save
 
-def create_post
+    if new_post.save
+      redirect_to("/post/details/#{new_post.id}")
+    else
+      render({ :template => "post_templates/invalid_post.html.erb" })
+    end
+  end
 
-post_title = params.fetch("query_post_title")
-post_body = params.fetch("query_post_body")
+  def delete_post
+    post_id = params.fetch("post_id")
 
-new_post = Post.new
+    matching_posts = Post.where({ :id => post_id }).first
 
-new_post.title = post_title
-new_post.body = post_body
+    matching_posts.destroy
 
-new_post.save
+    redirect_to("/posts/")
+  end
 
-if new_post.save
-redirect_to("/post/details/#{new_post.id}")
-else
-   render({ :template => "post_templates/invalid_post.html.erb" })
-end
+  def edit_post
+    edited_title = params.fetch("query_edited_title")
+    edited_body = params.fetch("query_edited_body")
+    post_id = params.fetch("post_id")
 
-end
+    # edited_post = Post.new
 
-def delete_post
+    edited_post = Post.where({ :id => post_id }).first
 
-  post_id = params.fetch("post_id")
+    edited_post.title = edited_title
+    edited_post.body = edited_body
 
-  matching_posts = Post.where({ :id => post_id}).first
+    edited_post.save
 
-  matching_posts.destroy
+    redirect_to("/post/details/#{edited_post.id}")
+  end
 
-  redirect_to("/posts/")
-end
+  def add_comment
+    query_new_comment = params.fetch("new_comment")
+    url_post_id = url_post_id = params.fetch("post_id")
 
-def edit_post
+    new_comment = Comment.new
+    new_comment.body = query_new_comment
+    new_comment.post_id = url_post_id
 
-edited_title = params.fetch("query_edited_title")
-edited_body = params.fetch("query_edited_body")
+    new_comment.save
 
-edited_post = Post.new
+    redirect_to("/post/details/#{new_comment.post_id.to_s}")
+  end
 
-edited_post.title = edited_title
-edited_post.body = edited_body
+  def delete_comment
+    comment_id = params.fetch("comment_id")
 
-edited_post.save
+    matching_comment = Comment.where({ :id => comment_id }).first
 
-redirect_to("/post/details/#{edited_post.id}")
-end
+    matching_comment.destroy
 
-def add_comment
-
-query_new_comment = params.fetch("new_comment")
-url_post_id = url_post_id = params.fetch("post_id")
-
-new_comment = Comment.new
-new_comment.body = query_new_comment
-new_comment.post_id = url_post_id
-
-new_comment.save
-
-
-redirect_to("/post/details/#{new_comment.post_id.to_s}")
-end
-
-def delete_comment
-
-  comment_id = params.fetch("comment_id")
-
-  matching_comment = Comment.where({ :id => comment_id}).first
-
-  matching_comment.destroy
-
-  redirect_to("/post/details/#{matching_comment.post_id.to_s}")
-end
-
+    redirect_to("/post/details/#{matching_comment.post_id.to_s}")
+  end
 end

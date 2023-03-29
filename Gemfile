@@ -8,7 +8,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'http'
 gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 4.1'
-gem "nokogiri", ">= 1.10.8"
+gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sprockets', '< 4'
 gem 'sassc-rails'
